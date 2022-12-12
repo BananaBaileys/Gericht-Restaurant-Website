@@ -1,0 +1,148 @@
+.app__navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-black); 
+    /* defined in index.css --> --color-black: #0C0C0C; */
+
+   padding: 1rem 2rem; 
+}
+
+.app__navbar-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.app__navbar-logo img{
+    width: 150px;
+}
+
+.app__navbar-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;    /* align center in x-asix */
+    align-items: center;    /* align vertically in the center */
+
+    list-style: none;   /* no dots from list */
+}
+
+.app__navbar-links li {
+    margin: 0 1rem;     /* margin: top_value bot_value */
+    cursor: pointer;    /* when hover over item, it will become clickable */
+}
+
+.app__navbar-links li:hover {
+    color: var(--color-grey)
+    /* when hover over items, it will become grey 
+    QoL changes */
+}
+
+.app__navbar-login {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.app__navbar-login a {
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: 0.5s ease;
+}
+
+.app__navbar-login a:hover {
+    border-bottom: 1px solid var(--color-golden);
+    /* when hover, have a underline golden color */
+}
+
+.app__navbar-login div {
+    width: 1px;
+    height: 30px;
+    background-color: var(--color-grey)
+    /* create a vertical line separate login and book table */
+}
+
+
+.app__navbar-smallscreen {
+    display: none;
+}
+
+.app__navbar-smallscreen_overlay {
+    position: fixed; /* want position to be fixed (in the center) */
+    /* want to it to appear on the entire screen, so: */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* entire height of the screen */
+    background: var(--color-black);
+    transition: 0.5s ease;
+
+    flex-direction: column;     /* they appear in a column */ 
+    z-index: 5;     /* the overlay is over the actual page */
+}
+
+.app__navbar-smallscreen_overlay .overlay__close {
+    font-size: 27px;
+    color: var(--color-golden);
+    cursor: pointer;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.app__navbar-smallscreen_links {
+    list-style: none;
+}
+
+.app__navbar-smallscreen_links li {
+    margin: 2rem;
+    cursor: pointer;
+    color: var(--color-golden);
+    font-size: 2rem;
+    text-align: center;
+    font-family: var(--font-base);
+}
+
+.app__navbar-smallscreen_links li:hover {
+    color: var(--color-white);
+}
+
+
+/* insert media plugin*/
+
+/* most common screen sizes: 200 1150 650 (mobile) */
+
+/* make the logo a bit bigger on larger devices */
+@media screen and (max-width: 2000px) {
+    .app__navbar-logo img {
+        width: 210px;
+    }
+}
+
+@media screen and (max-width: 1150px) { /* when its 1150px or less, this happenes */
+    .app__navbar-links {
+        display: none;
+    }
+    /* hide our main navigation bar */
+
+    .app__navbar-smallscreen {
+        display: flex;
+    } /* we make side menu to be visible */
+}
+
+@media screen and (max-width: 650px) {
+    .app__navbar {
+        padding: 1rem;
+    }
+
+    .app__navbar-login {
+        display: none;
+    }
+
+    .app__navbar-logo img {
+        width: 110px;
+    }
+}
